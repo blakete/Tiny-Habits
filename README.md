@@ -1,5 +1,6 @@
 # Tiny-Habits
-Define you aspirations and outcomes. Then build habits to get there!
+Build towards your aspirations one behavior at a time.
+Behavior = Motivation + Ability + Prompt
 
 ## Blake and Mitch Habit Tool
 * main habits:

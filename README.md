@@ -1,6 +1,6 @@
 # Tiny-Habits
 * a tool for Mitchell and Blake to consciously build positive and remove negative behavior patterns.
-* Build towards your aspirations one behavior at a time.
+* Build towards aspirations one recurring behavior at a time.
 * "common sense is not common practice"
 * "how you live your every day is how you live your life"
 * Pareto Principle: "80% of outcomes come from 20% of cause or 20% of all causes or possible factors in any given event"

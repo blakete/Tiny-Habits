@@ -50,6 +50,11 @@
         * cholesterol
         * probiotics
 
+## assisting tiny habit development
+* a virtual ABC notecard per habit
+* a morning survey to track habit progress
+* text link to progress feedback survey
+
 ## References
 * Tiny Habits, BJ Fogg
 

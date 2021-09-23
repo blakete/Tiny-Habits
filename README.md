@@ -3,16 +3,24 @@ Define you aspirations and outcomes. Then build habits to get there!
 
 ## Blake and Mitch Habit Tool
 * main habits:
+    * eliminate bad habits
+        * B = MAP (remove the prompt)
     * mentality
+        * make your bed
         * LAUGH
         * MAUI habit
+        * meditation
         * wish two people to be happy, visualize them
         * prayer
         * journaling
+        * relaxation time
+        * spend time outsite
+        * swearing
+        * eliminate social media
     * sleep
         * alcohol
         * stimulants
-        * light exposure
+        * light exposure (night, morning)
         * electronics before bed
         * pre-bedtime rituals (reading)
         * setting a bed time
@@ -20,9 +28,22 @@ Define you aspirations and outcomes. Then build habits to get there!
         * supplements
     * nutrition
         * water
+        * no alcohol
+        * grocery shopping
         * 3 meals a day
-        * gluten free 
-        * macros
+        * healthy snacks
+        * intolerances
+        * calories
+        * macros (protein, carbs, fats)
+        * variety of vegetables
+        * variety of fruit
+        * cholesterol
+        * probiotics
+
+
+
+
+
 
 
 

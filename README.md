@@ -1,5 +1,7 @@
 # Tiny-Habits
 * a tool for Mitchell and Blake to consciously build positive and remove negative behavior patterns.
+
+## Inspiration
 * Build towards aspirations one recurring behavior at a time.
 * "common sense is not common practice"
 * "how you live your every day is how you live your life"
@@ -8,7 +10,7 @@
 * "compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it." - Albert Einstein
 * Behavior = Motivation + Ability + Prompt
 
-## Blake and Mitch Habit Tool
+## Our Tiny Habits
 * main habits:
     * eliminate bad habits
         * B = MAP (remove the prompt)
@@ -48,8 +50,8 @@
         * cholesterol
         * probiotics
 
-
-
+## References
+* Tiny Habits, BJ Fogg
 
 
 

@@ -1,6 +1,11 @@
 # Tiny-Habits
-Build towards your aspirations one behavior at a time.
-Behavior = Motivation + Ability + Prompt
+* a tool for Mitchell and Blake to consciously build positive and remove negative behavior patterns.
+* Build towards your aspirations one behavior at a time.
+* "common sense is not common practice"
+* "how you live your every day is how you live your life"
+* Parkinson's Law: "80% of outcomes result from 20% of the causes"
+* "compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it." - Albert Einstein
+* Behavior = Motivation + Ability + Prompt
 
 ## Blake and Mitch Habit Tool
 * main habits:

@@ -17,6 +17,7 @@ Define you aspirations and outcomes. Then build habits to get there!
         * spend time outsite
         * swearing
         * eliminate social media
+        * Focusing on positive intentions
     * sleep
         * alcohol
         * stimulants

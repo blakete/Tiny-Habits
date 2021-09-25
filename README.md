@@ -49,6 +49,9 @@
         * variety of fruit
         * cholesterol
         * probiotics
+    * Blake Health
+        * Chesterol
+        * blood glucose / glycemic variability 
 
 ## assisting tiny habit development
 * a virtual ABC notecard per habit

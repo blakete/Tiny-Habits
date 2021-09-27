@@ -9,6 +9,9 @@
 * Parkinson's Law: "Work expands to fill the time available"
 * "compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it." - Albert Einstein
 * Behavior = Motivation + Ability + Prompt
+* ABC: Anchor, Behavior, Celebrate
+* "I change best by feeling good (not by feeling bad)"
+
 
 ## Our Tiny Habits
 * main habits:

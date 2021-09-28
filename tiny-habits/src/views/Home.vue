@@ -1,57 +1,30 @@
 <template>
   <div class="home">
-    <div v-show="step === 1">
-      <h2><b>Enter an aspiration or outcome, then press enter</b></h2>
-      <v-text-field
-        v-on:keyup.enter="addAspiration()"
-        v-model="aspiration"
-        placeholder="build and maintain a social network"
-        outlined
-      ></v-text-field>
-      <div v-for="(an_aspiration, index) in aspirations" :key="index">
-        <div style="display: flex; flex-direction: horizontal">
-          <v-btn icon v-on:click="removeAspiration(index)"
-            ><v-icon dark> mdi-close </v-icon></v-btn
-          >
-          <h3>{{ an_aspiration }}</h3>
-        </div>
-      </div>
-      <v-btn v-show="aspirations.length > 0" v-on:click="step = 2">done</v-btn>
-    </div>
-    <div v-show="step === 2">
-      <h2><b>Which is currently most important to you?</b></h2>
-      <ul style="padding-left: 20px">
-        <li v-for="(an_aspiration, index) in aspirations" :key="index">
+    <div id="container">
+      <v-card
+        class="seed-tile"
+        v-for="behavior in behaviors"
+        :key="behavior.id"
+      >
+        <v-btn icon color="gray" style="position: absolute; top: 0; right: 0; z-index: 2;">
+          <v-icon>mdi-dots-horizontal-circle-outline</v-icon></v-btn
+        >
+        <div v-ripple style="border-radius: 15px; padding: 10px;">
           <div
-            v-on:click="
-              focusAspiration = index;
-              step = 3;
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
             "
           >
-            <h3>{{ an_aspiration }}</h3>
+            <div class="seed-icon">{{ behavior.emoji }}</div>
           </div>
-        </li>
-      </ul>
-    </div>
-    <div v-show="step === 3">
-      <h2>
-        <b>{{ aspirations[focusAspiration] }}</b>
-      </h2>
-      <br />
-      <h2>
-        <b>What behaviors would help you move towards this goal?</b>
-      </h2>
-      <v-text-field
-        v-on:keyup.enter="addAspiration()"
-        v-model="aspiration"
-        placeholder="send one text to a friend each day"
-        outlined
-      ></v-text-field>
-      <div v-for="(a_behavior, index) in behaviors" :key="index">
-        <div style="display: flex; flex-direction: horizontal">
-          <h3>{{ a_behavior }}</h3>
+          <div>
+            <div style="text-align: left; font-size: 20px">1</div>
+            <div style="text-align: left">{{ behavior.behavior }}</div>
+          </div>
         </div>
-      </div>
+      </v-card>
     </div>
   </div>
 </template>
@@ -64,10 +37,43 @@ export default {
   components: {},
   data: () => {
     return {
-      step: 1,
-      aspiration: null,
-      aspirations: [],
-      focusAspiration: null,
+      behaviors: [
+        {
+          id: 1,
+          emoji: "🙏",
+          anchor: "",
+          behavior: "Gratitude",
+          celebration: "",
+        },
+        {
+          id: 2,
+          emoji: "🙏",
+          anchor: "",
+          behavior: "Gratitude",
+          celebration: "",
+        },
+        {
+          id: 3,
+          emoji: "🙏",
+          anchor: "",
+          behavior: "Gratitude",
+          celebration: "",
+        },
+        {
+          id: 4,
+          emoji: "🙏",
+          anchor: "",
+          behavior: "Gratitude",
+          celebration: "",
+        },
+        {
+          id: 5,
+          emoji: "🙏",
+          anchor: "",
+          behavior: "Gratitude",
+          celebration: "",
+        },
+      ],
     };
   },
   methods: {
@@ -91,10 +97,21 @@ export default {
 
 <style scoped>
 .home {
-  padding: 20px;
-  text-align: left;
 }
 h2 {
-  text-align: left;
+}
+.seed-icon {
+  font-size: 36px;
+}
+#container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+.seed-tile {
+  margin: 5px;
+  max-width: 125px;
+  min-width: 100px;
+  border-radius: 15px !important;
 }
 </style>

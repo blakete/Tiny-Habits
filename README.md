@@ -22,6 +22,7 @@
         * celebration (of positive behavior)
         * make your bed
         * LAUGH
+        * did something for myself
         * MAUI habit
         * meditation
         * wish two people to be happy, visualize them

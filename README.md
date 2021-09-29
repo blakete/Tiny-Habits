@@ -12,7 +12,6 @@
 * ABC: Anchor, Behavior, Celebrate
 * "I change best by feeling good (not by feeling bad)"
 
-
 ## Our Tiny Habits
 * main habits:
     * eliminate bad habits
@@ -66,6 +65,9 @@
 * a virtual ABC notecard per habit
 * a morning survey to track habit progress
 * text link to progress feedback survey
+
+* some habits only need to be done during the week or on certain days, at least add this as metadata. might not want to conditionally render by this because want to be able to mark habits as completed on days where they werent "supposed" to be completed. Ex: grocery store run not on a sunday
+
 
 ## References
 * Tiny Habits, BJ Fogg

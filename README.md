@@ -55,6 +55,9 @@
         * variety of fruit
         * cholesterol
         * probiotics
+    * productivity
+        * todo list
+        * Pareto principle: "Am I avoiding the most important work?"
     * Blake Health
         * Chesterol
         * blood glucose / glycemic variability 

@@ -41,7 +41,7 @@
         * pre-bedtime rituals (reading)
         * setting a bed time
         * temperature
-        * supplements
+        * supplements (magnesium L-Threonate)
     * nutrition
         * water
         * no alcohol

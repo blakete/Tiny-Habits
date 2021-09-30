@@ -13,12 +13,18 @@
         v-show="behavior.categories.includes(category)"
       >
         <v-btn
-            icon
-            color="gray"
-            style="position: absolute; top: 50%; right: 15px; z-index: 2; transform: translateY(-50%);"
-          >
-            <v-icon>mdi-information-outline</v-icon></v-btn
-          >
+          icon
+          color="gray"
+          style="
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            z-index: 2;
+            transform: translateY(-50%);
+          "
+        >
+          <v-icon>mdi-information-outline</v-icon></v-btn
+        >
         <div
           v-ripple
           v-on:click="toggleBehavior(behavior.id)"
@@ -126,7 +132,7 @@ export default {
           count: 0,
           emoji: "🧐",
           anchor: "",
-          behavior: "Pareto rule",
+          behavior: "80/20 rule",
           celebration: "",
           categories: ["Productivity 🧑‍💻"],
         },
@@ -138,6 +144,102 @@ export default {
           behavior: "Lunch walk",
           celebration: "",
           categories: ["Physical Health ❤️", "Mental Wellness 🧠"],
+        },
+        {
+          id: 9,
+          count: 0,
+          emoji: "💊",
+          anchor: "",
+          behavior: "Magnesium L-Threonate",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 10,
+          count: 0,
+          emoji: "🌡",
+          anchor: "",
+          behavior: "Bedroom temperature",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 11,
+          count: 0,
+          emoji: "💡",
+          anchor: "",
+          behavior: "Lights out time",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 12,
+          count: 0,
+          emoji: "😎",
+          anchor: "",
+          behavior: "Sleep eye mask",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 13,
+          count: 0,
+          emoji: "☀️",
+          anchor: "",
+          behavior: "Morning walk",
+          celebration: "",
+          categories: ["Sleep 💤", "Physical Health ❤️", "Mental Wellness 🧠"],
+        },
+        {
+          id: 14,
+          count: 0,
+          emoji: "💦",
+          anchor: "",
+          behavior: "Gallon of water",
+          celebration: "",
+          categories: [
+            "Sleep 💤",
+            "Physical Health ❤️",
+            "Mental Wellness 🧠",
+            "Nutrition 🍎",
+            "Productivity 🧑‍💻",
+          ],
+        },
+        {
+          id: 15,
+          count: 0,
+          emoji: "🙂",
+          anchor: "",
+          behavior: "Morning probiotic",
+          celebration: "",
+          categories: ["Nutrition 🍎"],
+        },
+        {
+          id: 16,
+          count: 0,
+          emoji: "🍌",
+          anchor: "",
+          behavior: "Eat one portion of fruit",
+          celebration: "",
+          categories: ["Nutrition 🍎"],
+        },
+        {
+          id: 17,
+          count: 0,
+          emoji: "📵",
+          anchor: "",
+          behavior: "No social media",
+          celebration: "",
+          categories: ["Mental Wellness 🧠"],
+        },
+        {
+          id: 18,
+          count: 0,
+          emoji: "⏱",
+          anchor: "",
+          behavior: "30-5 intervals",
+          celebration: "",
+          categories: ["Mental Wellness 🧠", "Productivity 🧑‍💻"],
         },
       ],
     };

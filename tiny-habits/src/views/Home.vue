@@ -57,11 +57,11 @@ export default {
   data: () => {
     return {
       categories: [
-        "Productivity",
-        "Mental Wellness",
-        "Physical Health",
-        "Sleep",
-        "Nutrition",
+        "Productivity 🧑‍💻",
+        "Mental Wellness 🧠",
+        "Physical Health ❤️",
+        "Sleep 💤",
+        "Nutrition 🍎",
       ],
       behaviors: [
         {
@@ -71,7 +71,7 @@ export default {
           anchor: "",
           behavior: "Gratitude",
           celebration: "",
-          categories: ["Mental Wellness"],
+          categories: ["Mental Wellness 🧠"],
         },
         {
           id: 2,
@@ -80,7 +80,7 @@ export default {
           anchor: "",
           behavior: "Make bed",
           celebration: "",
-          categories: ["Mental Wellness"],
+          categories: ["Mental Wellness 🧠"],
         },
         {
           id: 3,
@@ -89,7 +89,7 @@ export default {
           anchor: "",
           behavior: "Read",
           celebration: "",
-          categories: ["Mental Wellness"],
+          categories: ["Mental Wellness 🧠"],
         },
         {
           id: 4,
@@ -98,7 +98,7 @@ export default {
           anchor: "",
           behavior: "Todo list",
           celebration: "",
-          categories: ["Productivity"],
+          categories: ["Productivity 🧑‍💻"],
         },
         {
           id: 5,
@@ -107,7 +107,7 @@ export default {
           anchor: "",
           behavior: "Journal",
           celebration: "",
-          categories: ["Mentality"],
+          categories: ["Mental Wellness 🧠"],
         },
         {
           id: 6,
@@ -116,16 +116,16 @@ export default {
           anchor: "",
           behavior: "Exercise",
           celebration: "",
-          categories: ["Physical Health"],
+          categories: ["Physical Health ❤️"],
         },
         {
           id: 7,
           count: 0,
           emoji: "🧐",
           anchor: "",
-          behavior: "Pareto rule",
+          behavior: "80/20 rule",
           celebration: "",
-          categories: ["Productivity"],
+          categories: ["Productivity 🧑‍💻"],
         },
         {
           id: 8,
@@ -134,7 +134,112 @@ export default {
           anchor: "",
           behavior: "Lunch walk",
           celebration: "",
-          categories: ["Physical Health", "Mental Wellness"],
+          categories: ["Physical Health ❤️", "Mental Wellness 🧠"],
+        },
+        {
+          id: 9,
+          count: 0,
+          emoji: "💊",
+          anchor: "",
+          behavior: "Magnesium L-Threonate",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 10,
+          count: 0,
+          emoji: "🌡",
+          anchor: "",
+          behavior: "Bedroom temperature",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 11,
+          count: 0,
+          emoji: "💡",
+          anchor: "",
+          behavior: "Lights out time",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 12,
+          count: 0,
+          emoji: "😎",
+          anchor: "",
+          behavior: "Sleep eye mask",
+          celebration: "",
+          categories: ["Sleep 💤"],
+        },
+        {
+          id: 13,
+          count: 0,
+          emoji: "☀️",
+          anchor: "",
+          behavior: "Morning walk",
+          celebration: "",
+          categories: ["Sleep 💤", "Physical Health ❤️", "Mental Wellness 🧠"],
+        },
+        {
+          id: 14,
+          count: 0,
+          emoji: "💦",
+          anchor: "",
+          behavior: "Gallon of water",
+          celebration: "",
+          categories: [
+            "Sleep 💤",
+            "Physical Health ❤️",
+            "Mental Wellness 🧠",
+            "Nutrition 🍎",
+            "Productivity 🧑‍💻",
+          ],
+        },
+        {
+          id: 15,
+          count: 0,
+          emoji: "🙂",
+          anchor: "",
+          behavior: "Morning probiotic",
+          celebration: "",
+          categories: ["Nutrition 🍎"],
+        },
+        {
+          id: 16,
+          count: 0,
+          emoji: "🍌",
+          anchor: "",
+          behavior: "Eat one portion of fruit",
+          celebration: "",
+          categories: ["Nutrition 🍎"],
+        },
+        {
+          id: 17,
+          count: 0,
+          emoji: "📵",
+          anchor: "",
+          behavior: "No social media",
+          celebration: "",
+          categories: ["Mental Wellness 🧠"],
+        },
+        {
+          id: 18,
+          count: 0,
+          emoji: "⏱",
+          anchor: "",
+          behavior: "30-5 intervals",
+          celebration: "",
+          categories: ["Mental Wellness 🧠", "Productivity 🧑‍💻"],
+        },
+        {
+          id: 19,
+          count: 0,
+          emoji: "🚿",
+          anchor: "",
+          behavior: "Shower",
+          celebration: "",
+          categories: ["Mental Wellness 🧠", "Physical Health ❤️"],
         },
       ],
     };
@@ -180,7 +285,7 @@ h2 {
 }
 .seed-tile {
   margin: 5px;
-  max-width: 125px;
+  max-width: 100px;
   min-width: 100px;
   border-radius: 15px !important;
 }

@@ -241,6 +241,15 @@ export default {
           celebration: "",
           categories: ["Mental Wellness 🧠", "Productivity 🧑‍💻"],
         },
+        {
+          id: 19,
+          count: 0,
+          emoji: "🚿",
+          anchor: "",
+          behavior: "Shower",
+          celebration: "",
+          categories: ["Mental Wellness 🧠", "Physical Health ❤️"],
+        },
       ],
     };
   },

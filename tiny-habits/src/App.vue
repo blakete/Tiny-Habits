@@ -7,6 +7,15 @@
       <v-avatar style="position: absolute; right: 20px; top 0px;">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
       </v-avatar>
+      <!-- <v-icon size="48" style="position: absolute; left: 20px; top 0px;">
+        mdi-cloud-check-outline
+      </v-icon> -->
+      <!-- <v-progress-circular
+        :size="40"
+        style="position: absolute; left: 20px; top 0px;"
+        indeterminate
+        color="green"
+      ></v-progress-circular> -->
     </div>
     <router-view />
   </div>

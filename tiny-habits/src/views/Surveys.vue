@@ -6,7 +6,7 @@
       v-for="question in questions"
       :key="question.id"
     >
-      <v-card-title>{{ question.question }}</v-card-title>
+      <v-card-title style="word-break: break-word;">{{ question.question }}</v-card-title>
       <div
         v-ripple
         style="display: flex; flex-direction: row; padding: 10px 16px 10px 16px"
@@ -56,13 +56,20 @@ export default {
         },
         {
           id: 2,
-          question: "Make bed this morning?",
+          question: "Magnesium L-Threonate before bed?",
           type: "mc",
           options: ["Yes", "No"],
           answer: null,
         },
         {
           id: 3,
+          question: "Make bed this morning?",
+          type: "mc",
+          options: ["Yes", "No"],
+          answer: null,
+        },
+        {
+          id: 4,
           question: "Gratitude this morning?",
           type: "mc",
           options: ["Yes", "No"],

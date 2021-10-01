@@ -1,18 +1,13 @@
-// import Axios from 'Axios'
 import Vue from 'vue'
 import Axios from 'axios'
 import VueCookies from 'vue-cookies';
-// import Cookie from 'js-cookie'
-// import router from '@/router/index.js'
 Vue.use(VueCookies);
 
-var PRODUCTION_MODE = true
+var PRODUCTION_MODE = false
 var BASE_URL = "http://localhost:8080"
-var ARTICLE_URL = BASE_URL
-BASE_URL = "http://192.168.86.2:8080"
+// BASE_URL = "http://192.168.86.2:8080"
 if (PRODUCTION_MODE) {
   BASE_URL = ""
-  ARTICLE_URL = "https://images.holistichealth.ai/articles"
 }
 
 const state = {
@@ -21,109 +16,332 @@ const state = {
   expirationTime: localStorage.getItem('expirationTime') || 0,
   accessToken: localStorage.getItem('accessToken') || '',
   user: {
-    tiles: [
-      {
-        id: "1",
-        type: "goal",
-        elementColor: "rgb(255, 173, 31)",
-        title: "Calories Burned (Apple Health)",
-        date: "05/21/21",
-        data: {
-          value: 70,
-          goal: 12000,
-        },
-      },
-      {
-        id: "2",
-        type: "value",
-        elementColor: "rgb(0, 0, 0)",
-        title: "Steps (Apple Health)",
-        date: "05/21/21",
-        data: {
-          value: 70,
-          goal: 12000,
-        },
-      },
-      {
-        id: "3",
-        type: "goal",
-        elementColor: "rgb(245, 0, 7)",
-        title: "Resting Heart Rate (Apple Health)",
-        date: "05/21/21",
-        data: {
-          value: 60,
-          goal: 12000,
-        },
-      },
-
-      {
-        id: "5",
-        type: "goal",
-        elementColor: "rgb(227, 0, 252)",
-        title: "VO2 Max (Apple Health)",
-        date: "05/21/21",
-        data: {
-          value: 55,
-          goal: 12000,
-        },
-      },
-      {
-        id: "4",
-        type: "chart",
-        elementColor: "rgb(245, 0, 7)",
-        title: "Heart Rate (Apple Health)",
-        date: "05/21/21",
-        data: {
-          x: [],
-          y: [],
-        },
-      },
-      {
-        id: "6",
-        type: "goal",
-        elementColor: "rgb(52, 154, 242)",
-        title: "Carbohydrates (Daily) (Apple Health)",
-        date: "05/21/21",
-        data: {
-          value: 33,
-          goal: 12000,
-        },
-      },
-      {
-        id: "7",
-        type: "goal",
-        elementColor: "rgb(254, 211, 67)",
-        title: "Fat (Daily) (Apple Health)",
-        date: "05/21/21",
-        data: {
-          value: 35,
-          goal: 12000,
-        },
-      },
-      // {
-      //   id: "8",
-      //   type: "goal",
-      //   elementColor: "rgb(20, 139, 22)",
-      //   title: "Protein (Daily) (Apple Health)",
-      //   date: "05/21/21",
-      //   data: {
-      //     value: 38,
-      //     goal: 12000,
-      //   },
-      // },
-    ],
-
+    email: "blakeedwards823@gmail.com",
+    phone: "8603337654",
+    name: "Blake",
   },
-  lat: null,
-  lon: null,
-  publicIP: null,
-  city: null,
-  region: null,
+  categories: [
+    "Productivity 🧑‍💻",
+    "Mental Wellness 🧠",
+    "Physical Health ❤️",
+    "Sleep 💤",
+    "Nutrition 🍎",
+  ],
+  selected: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+  behaviors: [
+    {
+      id: 1,
+      type: "complete",
+      count: 0,
+      emoji: "🙏",
+      anchor: "",
+      behavior: "Gratitude",
+      celebration: "",
+      categories: ["Mental Wellness 🧠"],
+    },
+    {
+      id: 2,
+      type: "complete",
+      count: 0,
+      emoji: "🛏",
+      anchor: "",
+      behavior: "Make bed",
+      celebration: "",
+      categories: ["Mental Wellness 🧠"],
+    },
+    {
+      id: 3,
+      type: "complete",
+      count: 0,
+      emoji: "📖",
+      anchor: "",
+      behavior: "Read",
+      celebration: "",
+      categories: ["Mental Wellness 🧠"],
 
-
+    },
+    {
+      id: 4,
+      type: "complete",
+      count: 0,
+      emoji: "🗒",
+      anchor: "",
+      behavior: "Todo list",
+      celebration: "",
+      categories: ["Productivity 🧑‍💻"],
+    },
+    {
+      id: 5,
+      type: "complete",
+      count: 0,
+      emoji: "📝",
+      anchor: "",
+      behavior: "Journal",
+      celebration: "",
+      categories: ["Mental Wellness 🧠"],
+    },
+    {
+      id: 6,
+      type: "complete",
+      count: 0,
+      emoji: "💪",
+      anchor: "",
+      behavior: "Exercise",
+      celebration: "",
+      categories: ["Physical Health ❤️"],
+    },
+    {
+      id: 7,
+      count: 0,
+      type: "threshold-greater",
+      emoji: "🧐",
+      anchor: "",
+      behavior: "80/20 rule",
+      celebration: "",
+      categories: ["Productivity 🧑‍💻"],
+    },
+    {
+      id: 8,
+      type: "complete",
+      count: 0,
+      emoji: "👟",
+      anchor: "",
+      behavior: "Lunch walk",
+      celebration: "",
+      categories: ["Physical Health ❤️", "Mental Wellness 🧠"],
+    },
+    {
+      id: 9,
+      type: "complete",
+      count: 0,
+      emoji: "💊",
+      anchor: "",
+      behavior: "Magnesium L-Threonate",
+      celebration: "",
+      categories: ["Sleep 💤"],
+    },
+    {
+      id: 10,
+      type: "complete",
+      count: 0,
+      emoji: "🌡",
+      anchor: "",
+      behavior: "Bedroom temperature",
+      celebration: "",
+      categories: ["Sleep 💤"],
+    },
+    {
+      id: 11,
+      type: "complete",
+      count: 0,
+      emoji: "💡",
+      anchor: "",
+      behavior: "Lights out time",
+      celebration: "",
+      categories: ["Sleep 💤"],
+    },
+    {
+      id: 12,
+      type: "complete",
+      count: 0,
+      emoji: "😎",
+      anchor: "",
+      behavior: "Sleep eye mask",
+      celebration: "",
+      categories: ["Sleep 💤"],
+    },
+    {
+      id: 13,
+      type: "complete",
+      count: 0,
+      emoji: "☀️",
+      anchor: "",
+      behavior: "Morning walk",
+      celebration: "",
+      categories: ["Sleep 💤", "Physical Health ❤️", "Mental Wellness 🧠"],
+    },
+    {
+      id: 14,
+      type: "threshold-greater",
+      value: 128,
+      units: "oz",
+      count: 0,
+      emoji: "💦",
+      anchor: "",
+      behavior: "Gallon of water",
+      celebration: "",
+      categories: [
+        "Sleep 💤",
+        "Physical Health ❤️",
+        "Mental Wellness 🧠",
+        "Nutrition 🍎",
+        "Productivity 🧑‍💻",
+      ],
+    },
+    {
+      id: 15,
+      type: "complete",
+      count: 0,
+      emoji: "🙂",
+      anchor: "",
+      behavior: "Morning probiotic",
+      celebration: "",
+      categories: ["Nutrition 🍎"],
+    },
+    {
+      id: 16,
+      type: "complete",
+      count: 0,
+      emoji: "🍌",
+      anchor: "",
+      behavior: "Eat one portion of fruit",
+      celebration: "",
+      categories: ["Nutrition 🍎"],
+    },
+    {
+      id: 17,
+      type: "complete",
+      count: 0,
+      emoji: "📵",
+      anchor: "",
+      behavior: "No social media",
+      celebration: "",
+      categories: ["Mental Wellness 🧠"],
+    },
+    {
+      id: 18,
+      type: "complete",
+      count: 0,
+      emoji: "⏱",
+      anchor: "",
+      behavior: "30-5 intervals",
+      celebration: "",
+      categories: ["Mental Wellness 🧠", "Productivity 🧑‍💻"],
+    },
+    {
+      id: 19,
+      type: "complete",
+      count: 0,
+      emoji: "🚿",
+      anchor: "",
+      behavior: "Shower",
+      celebration: "",
+      categories: ["Mental Wellness 🧠", "Physical Health ❤️"],
+    },
+    {
+      id: 20,
+      type: "threshold-less",
+      count: 0,
+      emoji: "🍻",
+      anchor: "",
+      behavior: "Alcohol",
+      celebration: "",
+      categories: ["Sleep 💤", "Nutrition 🍎", "Mental Wellness 🧠", "Physical Health ❤️", "Productivity 🧑‍💻"],
+    },
+  ],
+  questions: [
+    {
+      id: 1,
+      question: "Gratitude this morning?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 2,
+      question: "Make bed this morning?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 3,
+      question: "Read yesterday?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 4,
+      question: "Create todo list this morning?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 5,
+      question: "Journal this morning?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 6,
+      question: "Exercise yesterday?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 10,
+      question: "Set a cool bedroom temperature for sleep?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 12,
+      question: "Wear an eye mask to sleep?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 15,
+      question: "Take a probiotic this morning?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 16,
+      question: "Eat a portion of fruit yesterday?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 17,
+      question: "Use social media yesterday?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+    {
+      id: 19,
+      question: "Shower this morning?",
+      type: "mc",
+      options: ["Yes", "No"],
+      default: "No",
+      answer: null,
+    },
+  ],
 }
 
 const getters = {
+  getAccessToken: state => state.accessToken,
+  getRefreshToken: state => state.refreshToken,
   isLoggedIn: state => {
     // var now = new Date();
     // var utc_now = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
@@ -131,19 +349,12 @@ const getters = {
   },
   authStatus: state => state.status,
   getUser: state => state.user,
-  getUsername: state => state.user.username,
-  getFirstName: state => state.user.firstName,
-  getLastName: state => state.user.lastName,
-  getInitials: state => (state.user.firstName === null && state.user.lastName === null) ? "NA" : state.user.firstName.charAt(0) + state.user.lastName.charAt(0),
-  getAccessToken: state => state.accessToken,
-  getRefreshToken: state => state.refreshToken,
-  getUserTiles: state => state.user.tiles,
-  hasSetPassword: state => state.user.hasSetPassword,
-  hasCompletedTwoFactor: state => state.user.hasCompletedTwoFactor,
-  getUserRole: state => state.user.role,
-  getUserLogs: state => state.user.currentDayLogs,
-  getUserTrackers: state => state.user.trackers,
-  getUserTrackerByTag: state => trackerTag => state.user.trackers.find(tracker => tracker.tag === trackerTag) 
+  getEmail: state => state.user.email,
+  getName: state => state.user.name,
+  getCategories: state => state.categories,
+  getBehaviors: state => state.behaviors,
+  getSelected: state => state.selected,
+  getQuestions: state => state.questions,
 }
 
 // https://vuex.vuejs.org/guide/actions.html#actions 
@@ -277,822 +488,36 @@ const actions = {
     })
   },
 
-  requestInvite(context, requestForm) {
-    console.log("Request form: ")
-    console.log(requestForm)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/invite', data: requestForm, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          console.log(status, message)
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message,
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message,
-            })
-          }
-
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  submitHelpMessage({ state }, { route, helpMessage }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      accessToken: accessToken,
-      email: email,
-      route: route,
-      message: helpMessage
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/helpmessage', data: payload, method: 'POST' })
-        .then((response) => {
-          const message = response.data.message;
-          const status = response.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-
-  },
-
-  logSymptom({ state }, { status, what, why, save, lat, lon }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      accessToken: accessToken,
-      email: email,
-      status: status,
-      what: what,
-      why: why,
-      save: save,
-      lat: lat,
-      lon: lon
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/logsymptom', data: payload, method: 'POST' })
-        .then((response) => {
-          const message = response.data.message;
-          const status = response.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  logDelete({ state }, { dailyLogID }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      accessToken: accessToken,
-      email: email,
-      dailyLogID: dailyLogID
-    }
-    console.log("Attempting to delete log:")
-    console.log(payload)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/deletelog', data: payload, method: 'POST' })
-        .then((response) => {
-          console.log(response)
-          const message = response.data.message;
-          const status = response.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  logNote({ state }, { note }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      accessToken: accessToken,
-      username: email,
-      note: note,
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/lognote', data: payload, method: 'POST' })
-        .then((response) => {
-          const message = response.data.message;
-          const status = response.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  getDailyMes({ state }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      accessToken: accessToken,
-      email: email
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/getdailymes', data: payload, method: 'POST' })
-        .then((response) => {
-          const status = response.data.status;
-          if (status !== "false") {
-            const logs = response.data.logs;
-            resolve({
-              success: 1,
-              logs: logs
-            })
-          } else {
-            resolve({
-              success: 0,
-              logs: null
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  register(context, user) {
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/register', data: user, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  request(context, userRequest) {
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/request', data: userRequest, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  resetPassword({ state, commit }, { password }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-      password: password
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/reset-password', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            const hasSetPassword = true
-            commit('setHasSetPassword', { hasSetPassword })
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  completeTwoFactor({ state }, { mobilePhone }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-      mobilePhone: mobilePhone
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/complete-twofactor', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  verifyTwoFactor({ state, commit }, { twoFactorCode }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-      twoFactorCode: twoFactorCode
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/verify-twofactor', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            const hasCompletedTwoFactor = true
-            commit('setHasCompletedTwoFactor', { hasCompletedTwoFactor })
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            const hasCompletedTwoFactor = false
-            commit('setHasCompletedTwoFactor', { hasCompletedTwoFactor })
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          const hasCompletedTwoFactor = false
-          commit('setHasCompletedTwoFactor', { hasCompletedTwoFactor })
-          reject(err)
-        })
-    })
-  },
-
-  resendTwoFactor({ state }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/resend-twofactor', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  getUserServices({ state }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/connect/services', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            const services = resp.data.services;
-            resolve({
-              success: 1,
-              message: message,
-              services: services
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  completeProfile({ state, commit }, { birthDate, sex, bodyWeight, heightInch, waistCircumference, hipCircumference, interests, ethnicity }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-      birthDate: birthDate,
-      sex: sex,
-      bodyWeight: bodyWeight,
-      heightInch: heightInch,
-      waistCircumference: waistCircumference,
-      hipCircumference: hipCircumference,
-      interests: interests,
-      ethnicity: ethnicity,
-    }
-    console.log("Submitted completion of profile:")
-    console.log(data)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/complete', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            commit('setHasCompletedProfile', { hasCompletedProfile: true })
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            commit('setHasCompletedProfile', { hasCompletedProfile: false })
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          commit('setHasCompletedProfile', { hasCompletedProfile: false })
-          reject(err)
-        })
-    })
-  },
-
-  updateProfile({ state, commit }, { firstName, lastName, birthDate, sex, ethnicity, bodyWeight, heightInch, waistCircumference, hipCircumference, interests }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const data = {
-      email: email,
-      accessToken: accessToken,
-      firstName: firstName,
-      lastName: lastName,
-      birthDate: birthDate,
-      sex: sex,
-      bodyWeight: bodyWeight,
-      heightInch: heightInch,
-      waistCircumference: waistCircumference,
-      hipCircumference: hipCircumference,
-      interests: interests,
-      ethnicity: ethnicity,
-    }
-    console.log("Submitted completion of profile:")
-    console.log(data)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/update-profile', data: data, method: 'POST' })
-        .then(resp => {
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            commit('setUserProfile', {
-              email,
-              accessToken,
-              firstName,
-              lastName,
-              birthDate,
-              sex,
-              bodyWeight,
-              heightInch,
-              waistCircumference,
-              hipCircumference,
-              interests,
-              ethnicity,
-            })
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  confirm(context, accountID) {
-    console.log(accountID)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/confirm', method: 'GET', params: { UUID: accountID } })
-        .then((resp) => {
-          console.log(resp)
-          const message = resp.data.message;
-          const status = resp.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message
-            })
-          }
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
-  },
-
-  getUser({ state }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = { accessToken, email }
-    console.log("Get user payload:")
-    console.log(payload)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/user', data: payload, method: 'POST' })
-        .then(resp => {
-          console.log(resp)
-          const message = resp.data.message
-          const status = resp.data.status;
-          const user = resp.data.user;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-              message: message,
-              user: user
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message,
-              user: user
-            })
-          }
-
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  },
-
-  getSurvey({ state }, { shortName }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      email, accessToken, shortName
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/getsurvey', data: payload, method: 'POST' })
-        .then((response) => {
-          const message = response.data.message
-          const status = response.data.status
-          if (status !== "false") {
-            const survey = response.data.survey
-            resolve({
-              success: 1,
-              message: message,
-              survey: survey
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message,
-              survey: null
-            })
-          }
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
-  },
-
-  getCurrentLocationFromIP({ commit }) {
-    return new Promise((resolve, reject) => {
-      Axios({ url: 'http://ip-api.com/json', method: 'GET' })
-        .then((response) => {
-          var lat = response.data.lat;
-          var lon = response.data.lon;
-          var publicIP = response.data.query;
-          var city = response.data.city;
-          var region = response.data.region;
-          commit('setLocation', { lat, lon, publicIP, city, region })
-          resolve({
-            lat: lat,
-            lon: lon,
-            publicIP: publicIP,
-            city: city,
-            region: region
-          })
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
-  },
-
-  authorizeService({ state }, { serviceID }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      email, accessToken, serviceID
-    }
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/connect/authorize', data: payload, method: 'POST' })
-        .then((response) => {
-          const message = response.data.message
-          const status = response.data.status
-          if (status !== "false") {
-            const url = response.data.url
-            resolve({
-              success: 1,
-              message: message,
-              url: url
-            })
-          } else {
-            resolve({
-              success: 0,
-              message: message,
-            })
-          }
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
-  },
-
-  // method to get blog article html to be injected in page
-  getArticle(context, { articleID }) {
-    console.log("Loading blog articleID: " + articleID)
-    return new Promise((resolve, reject) => {
-      Axios({ url: ARTICLE_URL + "/" + articleID + ".html", method: 'GET' })
-        .then((response) => {
-          resolve({
-            data: response.data
-          })
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
-  },
-
-  getAlphaLogs({ commit, state }, date) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      email, accessToken, date
-    }
-    console.log("getting logs")
-    console.log(payload)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/alpha/day', data: payload, method: 'POST' })
-        .then((response) => {
-          const status = response.data.status;
-          if (status !== "false") {
-            const logs = response.data.logs;
-            console.log(logs)
-            commit('setUserLogs', { logs })
-            resolve({
-              success: 1,
-            })
-          } else {
-            resolve({
-              success: 0,
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  getAlphaTrackers({ commit, state }) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      email, accessToken
-    }
-    console.log("getting trackers")
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/alpha/trackers', data: payload, method: 'POST' })
-        .then((response) => {
-          const status = response.data.status;
-          if (status !== "false") {
-            const trackers = response.data.trackers;
-            console.log(trackers)
-            commit('setUserTrackers', { trackers })
-            resolve({
-              success: 1,
-            })
-          } else {
-            resolve({
-              success: 0,
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  deleteAlphaLog({ state }, id) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      email, accessToken, id
-    }
-    console.log("Deleting log")
-    console.log(payload)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/alpha/note', data: payload, method: 'DELETE' })
-        .then((response) => {
-          const status = response.data.status;
-          if (status !== "false") {
-            resolve({
-              success: 1,
-            })
-          } else {
-            resolve({
-              success: 0,
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
-
-  patchAlphaLog({ commit, state }, date) {
-    const email = state.user.username
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {
-      email, accessToken, date
-    }
-    console.log("getting logs")
-    console.log(payload)
-    return new Promise((resolve, reject) => {
-      Axios({ url: BASE_URL + '/alpha/note', data: payload, method: 'PATCH' })
-        .then((response) => {
-          const status = response.data.status;
-          if (status !== "false") {
-            const logs = response.data.logs;
-            console.log(logs)
-            commit('setUserLogs', { logs })
-            resolve({
-              success: 1,
-            })
-          } else {
-            resolve({
-              success: 0,
-            })
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          reject(error)
-        })
-    })
-  },
 
 }
 
 // https://vuex.vuejs.org/guide/mutations.html#mutations-must-be-synchronous
 // mutations are synchronous functions that modify client state
 const mutations = {
+  toggleBehavior(state, id) {
+    var index = state.selected.indexOf(id);
+    if (index !== -1) {
+      state.selected.splice(index, 1);
+    } else {
+      state.selected.push(id);
+    }
+  },
+  setQuestionAnswer(state, { id, answer }) {
+    for (var i = 0; i < state.questions.length; i++) {
+      if (state.questions[i].id === id) {
+        state.questions[i].answer = answer
+      }
+    }
+  },
+  changeEmail(state) {
+    state.user.email = "31laxbdog";
+  },
   auth_request(state) {
     state.status = 'loading'
   },
-  auth_success(state, { refreshToken, expirationTime, role, institutions, groups, username, firstName, lastName, hasCompletedTwoFactor, hasCompletedProfile, hasSetPassword }) {
+  auth_success(state) {
     state.status = 'success'
-    state.refreshToken = refreshToken
-    state.expirationTime = expirationTime
-    state.user = {}
-    state.user.role = role
-    state.user.institutions = institutions
-    state.user.groups = groups
-    state.user.username = username
-    state.user.firstName = firstName
-    state.user.lastName = lastName
-    state.user.hasCompletedTwoFactor = hasCompletedTwoFactor
-    state.user.hasCompletedProfile = hasCompletedProfile
-    state.user.hasSetPassword = hasSetPassword
+
   },
   auth_error(state) {
     state.status = 'error'
@@ -1112,57 +537,8 @@ const mutations = {
     localStorage.removeItem('refreshToken')
     localStorage.removeItem('expirationTime')
     localStorage.removeItem('accessToken')
-    console.log("RUNNING logoutUser")
-    state.refreshToken = ''
-    state.status = ''
-    state.expirationTime = 0
-    state.accessToken = ''
-    state.user = {
-      firstName: null,
-      lastName: null,
-    }
+    state.user = {}
   },
-  setLocation(state, { lat, lon, publicIP, city, region }) {
-    state.lat = lat
-    state.lon = lon
-    state.publicIP = publicIP
-    state.city = city
-    state.region = region
-  },
-  setHasCompletedProfile(state, { hasCompletedProfile }) {
-    state.user.hasCompletedProfile = hasCompletedProfile
-  },
-  setHasCompletedTwoFactor(state, { hasCompletedTwoFactor }) {
-    console.log("Setting has completed two factor: " + hasCompletedTwoFactor)
-    state.user.hasCompletedTwoFactor = hasCompletedTwoFactor;
-  },
-  setHasSetPassword(state, { hasSetPassword }) {
-    console.log("Setting has set password: " + hasSetPassword)
-    state.user.hasSetPassword = hasSetPassword;
-  },
-  setUserProfile(state, { firstName, lastName, birthDate, sex, ethnicity, bodyWeight, heightInch, waistCircumference, hipCircumference, interests }) {
-    state.user.firstName = firstName
-    state.user.lastName = lastName
-    state.user.birthDate = birthDate
-    state.user.sex = sex
-    state.user.ethnicity = ethnicity
-    state.user.bodyWeight = bodyWeight
-    state.user.heightInch = heightInch
-    state.user.waistCircumference = waistCircumference
-    state.user.hipCircumference = hipCircumference
-    state.user.interests = interests
-  },
-  setUserTiles(state, { tiles }) {
-    state.user.tiles = tiles;
-  },
-  setUserLogs(state, { logs }) {
-    console.log("Updating current day user logs...")
-    state.user.currentDayLogs = logs
-  },
-  setUserTrackers(state, { trackers }) {
-    console.log("Updating user trackers...")
-    state.user.trackers = trackers
-  }
 }
 
 export default {

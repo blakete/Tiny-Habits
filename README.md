@@ -17,7 +17,7 @@
     * eliminate bad habits
         * B = MAP (remove the prompt)
     * mentality
-        * mindfullness 
+        * mindfulness 
         * gratitude
         * celebration (of positive behavior)
         * make your bed

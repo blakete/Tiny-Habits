@@ -14,7 +14,7 @@
         :key="question.id"
         v-show="getSelected.includes(question.id)"
       >
-        <v-card-title style="word-break: break-word">{{
+        <v-card-title style="word-break: break-word; text-align: left;">{{
           question.question
         }}</v-card-title>
         <div

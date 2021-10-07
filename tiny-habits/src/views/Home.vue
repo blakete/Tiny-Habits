@@ -12,7 +12,10 @@
           :style="{ background: behavior.count == 0 ? 'inherit' : '#d1e6c9' }"
           v-for="behavior in behaviors"
           :key="behavior.id"
-          v-show="behavior.categories.includes(category) && getSelected.includes(behavior.id)"
+          v-show="
+            behavior.categories.includes(category) &&
+            getSelected.includes(behavior.id)
+          "
         >
           <v-btn
             icon
@@ -40,6 +43,50 @@
                 {{ behavior.count }}
               </div>
               <div style="text-align: left">{{ behavior.behavior }}</div>
+            </div>
+          </div>
+        </v-card>
+      </div>
+    </div>
+
+    <div
+      class="category-section"
+      v-for="category in behaviorCategories"
+      :key="category+'1'"
+    >
+      <div class="aspiration-divider">
+        <b>{{ category }}</b>
+      </div>
+      <div class="seed-row-container">
+        <v-card
+          class="seed-row"
+          :style="{ background: behavior.count == 0 ? 'inherit' : 'white' }"
+          v-for="behavior in behaviors"
+          :key="behavior.id"
+          v-show="
+            behavior.categories.includes(category) &&
+            getSelected.includes(behavior.id)
+          "
+        >
+          <v-btn
+            icon
+            color="gray"
+            style="position: absolute; top: 0; right: 0; z-index: 2"
+          >
+            <v-icon>mdi-dots-horizontal-circle-outline</v-icon></v-btn
+          >
+          <div
+            v-ripple
+            style="border-radius: 15px; padding: 10px"
+            v-on:click="behavior.count += 1"
+          >
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <v-avatar color="green" size="50">
+                <span class="white--text text-h5">{{ behavior.count }}</span>
+              </v-avatar>
+              <div style="text-align: left; font-size: 20px; margin-left: 20px">
+                {{ behavior.behavior }}
+              </div>
             </div>
           </div>
         </v-card>
@@ -87,7 +134,7 @@ export default {
 
 <style scoped>
 .aspiration-divider {
-  width: 90%;
+  /* width: 90%; */
   background-color: #d1e6c9 !important;
   margin: 10px 5% 10px 5%;
   font-size: 20px;
@@ -110,5 +157,15 @@ h2 {
   max-width: 100px;
   min-width: 100px;
   border-radius: 15px !important;
+}
+.seed-row {
+  margin: 5% 10px 5% 10px;
+  width: 90%;
+  border-radius: 15px !important;
+}
+.seed-row-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
 }
 </style>

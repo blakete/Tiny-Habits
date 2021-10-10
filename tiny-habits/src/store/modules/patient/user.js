@@ -4,7 +4,7 @@ import VueCookies from 'vue-cookies';
 Vue.use(VueCookies);
 
 var PRODUCTION_MODE = false
-var BASE_URL = "http://localhost:8080"
+var BASE_URL = "http://localhost:8081"
 // BASE_URL = "http://192.168.86.2:8080"
 if (PRODUCTION_MODE) {
   BASE_URL = ""
@@ -19,6 +19,7 @@ const state = {
     email: "blakeedwards823@gmail.com",
     phone: "8603337654",
     name: "Blake",
+    uuid: "81ake"
   },
   categories: [
     "Productivity 🧑‍💻",
@@ -484,6 +485,31 @@ const actions = {
         })
         .catch(err => {
           reject(err)
+        })
+    })
+  },
+
+  checkGoodmorningCompleted(context, UUID) {
+    console.log(UUID)
+    return new Promise((resolve, reject) => {
+      Axios({ url: BASE_URL + '/goodmorning', method: 'GET', params: { UUID: UUID } })
+        .then((resp) => {
+          console.log(resp)
+          const complete = resp.data.complete;
+          if (complete) {
+            resolve({
+              complete: true,
+              questions: []
+            })
+          } else {
+            resolve({
+              complete: false,
+              questions: resp.data.questions
+            })
+          }
+        })
+        .catch((error) => {
+          reject(error)
         })
     })
   },

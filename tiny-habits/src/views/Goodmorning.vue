@@ -1,6 +1,9 @@
 <template>
   <div class="goodmorning-container">
-    <div v-show="!complete" style="position: relative; top: 30%; transform: translateY(-30%)">
+    <div
+      v-show="!loading && !complete"
+      style="position: relative; top: 30%; transform: translateY(-30%)"
+    >
       <div style="padding-bottom: 40px">
         <div style="font-size: 25px">Goodmorning</div>
         <!-- <div>Yesterday did you...</div>
@@ -54,9 +57,12 @@
         </div>
       </div>
     </div>
-    <div v-show="complete" style="position: relative; top: 40%; transform: translateY(-40%);">
+    <div
+      v-show="!loading && complete"
+      style="position: relative; top: 40%; transform: translateY(-40%)"
+    >
       <div style="font-size: 25px">Great work!</div>
-        <div style="font-size: 20px">You are ready for the day.</div>
+      <div style="font-size: 20px">You are ready for the day.</div>
     </div>
   </div>
 </template>
@@ -69,21 +75,21 @@ export default {
     curr_idx: 0,
     extra_idx: 0,
     answers: [],
+    // {
+    //   id: 1,
+    //   question: "Have any alcoholic drinks?",
+    //   extra_questions: [
+    //     // {
+    //     //   question: "If yes, how many drinks?",
+    //     //   type: "int",
+    //     // },
+    //     // {
+    //     //   question: "When was your last drink?",
+    //     //   type: "time",
+    //     // },
+    //   ],
+    // },
     questions: [
-      // {
-      //   id: 1,
-      //   question: "Have any alcoholic drinks?",
-      //   extra_questions: [
-      //     // {
-      //     //   question: "If yes, how many drinks?",
-      //     //   type: "int",
-      //     // },
-      //     // {
-      //     //   question: "When was your last drink?",
-      //     //   type: "time",
-      //     // },
-      //   ],
-      // },
       {
         question: "Make your bed?",
         extra_questions: [],
@@ -126,8 +132,28 @@ export default {
       },
     ],
     complete: false,
+    loading: true,
   }),
   computed: {},
+  created: function () {
+    // var UUID = "81ake";
+    var UUID = this.$route.params.id;
+    this.$store
+      .dispatch("checkGoodmorningCompleted", UUID)
+      .then((result) => {
+        console.log(result);
+        if (result.complete) {
+          this.complete = true;
+          this.loading = false;
+        } else {
+          this.questions = result.questions;
+          this.loading = false;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
   methods: {
     answer(answer) {
       console.log(this.curr_idx, answer);
